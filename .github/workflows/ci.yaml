@@ -18,6 +18,8 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - run: pip install -r en/requirements.txt
-      - run: pip install pillow cairosvg
-      - run: mkdocs gh-deploy --force
+      - run: |
+            cd en
+            pip3 install -r requirements.txt
+            pip3 install pillow cairosvg
+            mkdocs gh-deploy --force
